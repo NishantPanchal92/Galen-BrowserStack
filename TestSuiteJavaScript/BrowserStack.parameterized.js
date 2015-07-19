@@ -1,4 +1,8 @@
+// A Galen-JavaScript test to execute a spec against multiple configurations
+
+// Configurations for running the tests
 this.devices = {
+  // For mobile devices
   mobile: {
     tag: "mobile",
     deviceName: "iPhone 5S",
@@ -10,6 +14,7 @@ this.devices = {
     os: "",
     os_version: ""
   },
+  // For desktop browsers
   desktop: {
     tag: "desktop",
     deviceName: "Win-Chrome 43",
@@ -25,7 +30,7 @@ this.devices = {
 
 forAll(devices, function (option) {
 	test("Homepage Test on ${deviceName}", function() {
-		var driver = createGridDriver("http://nishant57:S7ZUamAuUp24pPLhDYsi@hub.browserstack.com/wd/hub", {
+		var driver = createGridDriver("http://<USERNAME>:<KEY>@hub.browserstack.com/wd/hub", {
 			desiredCapabilities: {
 				 browser: option.browser,
 				 browser_version: option.browser_version,
@@ -38,10 +43,10 @@ forAll(devices, function (option) {
 			}
 		});
 
-		// Open the URL you wish to run the test on
+		// Open the test URL
 		driver.get("http://galenframework.com");
 
-		// Select the spec to execute the test
+		// Select the Spec
 		checkLayout(driver, "homepage.spec", [option.tag]);
 
 		// Destroy the session

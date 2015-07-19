@@ -1,5 +1,9 @@
+// A Galen-JavaScript test to execute a spec against a specific configuration
+
 test("Homepage Test on BrowserStack", function() {
-	var driver = createGridDriver("http://nishant57:S7ZUamAuUp24pPLhDYsi@hub.browserstack.com/wd/hub", {
+	// Create a session on BrowserStack
+	var driver = createGridDriver("http://<USERNAME>:<KEY>@hub.browserstack.com/wd/hub", {
+		// Define capabilities
 		desiredCapabilities: {
 			 browser: "Chrome",
 			 browser_version: "43.0",
