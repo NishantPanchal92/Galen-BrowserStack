@@ -1,0 +1,14 @@
+@@ set 
+	base_url http://galenframework.com
+	browser_size 1024x780
+	bs_url http://nishant57:S7ZUamAuUp24pPLhDYsi@hub.browserstack.com/wd/hub
+
+@@ Parameterized
+    | deviceName     | tags       | gridArgs | 
+    | iPhone 5S      | mobile     | --dc.browserName iPhone --dc.platform "MAC" --dc.device "iPhone 5S" | 
+    | Win-Chrome 43  | desktop    | --browser chrome --dc.browser_version 43 --dc.os Windows --dc.os_version 8.1 --dc.browserstack.debug true | 
+    | OSX-Firefox 39 | desktop    | --browser firefox --dc.browser_version 39 --dc.os OSX --dc.os_version MountainLion --dc.browserstack.debug true | 
+    
+Check height of header in ${deviceName}
+    selenium grid ${bs_url} --page ${base_url} ${gridArgs}
+        check   homepage.spec --include ${tags}
