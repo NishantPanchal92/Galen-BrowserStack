@@ -1,7 +1,7 @@
 @@ set 
 	base_url http://galenframework.com
 	browser_size 1024x780
-	bs_url http://<USERNAME>:<KEY>@hub.browserstack.com/wd/hub
+	browserstack_url http://<USERNAME>:<KEY>@hub.browserstack.com/wd/hub
 
 @@ Parameterized
     | deviceName     | tags       | gridArgs | 
@@ -10,5 +10,5 @@
     | OSX-Firefox 39 | desktop    | --size ${browser_size} --browser firefox --dc.browser_version 39 --dc.os OSX --dc.os_version MountainLion --dc.browserstack.debug true | 
     
 Check height of header in ${deviceName}
-    selenium grid ${bs_url} --page ${base_url} ${gridArgs}
+    selenium grid ${browserstack_url_url} --page ${base_url} ${gridArgs}
         check   homepage.spec --include ${tags}
