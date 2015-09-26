@@ -3,7 +3,7 @@
 test("Homepage Test on BrowserStack", function() {
 
 	// Create a session on BrowserStack
-	var driver = createGridDriver("http://<USERNAME>:<KEY>@hub.browserstack.com/wd/hub", {
+	var driver = createGridDriver("http://nishant57:S7ZUamAuUp24pPLhDYsi@hub.browserstack.com/wd/hub", {
 		// Define capabilities
 		desiredCapabilities: {
 			 browser: "Chrome",
