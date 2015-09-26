@@ -12,7 +12,8 @@ this.devices = {
     browser: "",
     browser_version: "",
     os: "",
-    os_version: ""
+    os_version: "",
+    emulator: "true"
   },
   // For desktop browsers
   desktop: {
@@ -24,13 +25,14 @@ this.devices = {
     browser: "Chrome",
     browser_version: "43",
     os: "Windows",
-    os_version: "8.1"
+    os_version: "8.1",
+    emulator: ""
   }
 };
 
 forAll(devices, function (option) {
 	test("Homepage Test on ${deviceName}", function() {
-		var driver = createGridDriver("http://<USERNAME>:<KEY>@hub.browserstack.com/wd/hub", {
+		var driver = createGridDriver("http://" +  System.getProperty("browserstack.username") + ":" +  System.getProperty("browserstack.key") + "@hub.browserstack.com/wd/hub", {
 			desiredCapabilities: {
 				 browser: option.browser,
 				 browser_version: option.browser_version,
@@ -39,15 +41,16 @@ forAll(devices, function (option) {
 				 browserName: option.browserName,
 				 platform: option.platform,
 				 device: option.device,
+         emulator: option.emulator,
 				 "browserstack.debug": "true"
 			}
 		});
 
 		// Open the test URL
-		driver.get("http://galenframework.com");
+		driver.get("http://www.google.com/ncr");
 
 		// Select the Spec
-		checkLayout(driver, "homepage.spec", [option.tag]);
+		checkLayout(driver, "homepage.gspec", [option.tag]);
 
 		// Destroy the session
 		driver.quit();
