@@ -23,7 +23,7 @@ Using Galen Specs Language you are able to describe any complex layout including
 
 Command to execute the Galen Spec test:
 ```
-galen test BrowserStackTest.test --parallel-suites 2
+galen test BrowserStackTest.test --parallel-suites 2 -Dbrowserstack.username=<USERNANME> -Dbrowserstack.key=<KEY>
 ```
 
 #### Galen JavaScript Tests
@@ -31,7 +31,7 @@ With JavaScript tests you are free to invent your own test framework and perform
 
 Command to execute the Galen JavaScript test:
 ```
-galen test BrowserStack.test.js --parallel-suites 2
+galen test BrowserStack.test.js --parallel-suites 2 -Dbrowserstack.username=<USERNANME> -Dbrowserstack.key=<KEY>
 ```
 
 #### Command line arguments (More information [here](http://galenframework.com/docs/reference-working-in-command-line/#Runningtestsuites)):
